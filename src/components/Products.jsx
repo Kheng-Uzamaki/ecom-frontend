@@ -5,11 +5,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchCategories } from "../store/actions";
 import Filter from "./Filter";
 import useProductFilter from "./useProductFilter";
+import { FadeLoader, MoonLoader } from "react-spinners";
+import Loader from "./Loader";
 
 const Products = () => {
   const { isLoading, errorMessage } = useSelector((state) => state.errors);
 
-  const { products,categories } = useSelector((state) => state.products);
+  const { products, categories } = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   useProductFilter();
@@ -17,14 +19,14 @@ const Products = () => {
     dispatch(fetchCategories());
   }, [dispatch]);
 
-
   console.log(products);
 
   return (
     <div className="lg:px-14 sm:px-8 px-4 py-14 2xl:w-[90%] 2xl:mx-auto">
       <Filter categories={categories ? categories : []} />
       {isLoading ? (
-        <p>Loading....</p>
+        // Loading Spinner
+        <Loader />
       ) : errorMessage ? (
         <div className="flex justify-center items-center h-[200px]">
           <FaExclamationTriangle className="text-slate-800 text-3xl mr-2" />
