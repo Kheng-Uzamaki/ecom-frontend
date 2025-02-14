@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
-import { FaShoppingCart } from 'react-icons/fa';
-import ProductViewModal from './ProductViewModal';
-import truncateText from './truncateText';
+import React, { useState } from "react";
+import { FaShoppingCart } from "react-icons/fa";
+import ProductViewModal from "./ProductViewModal";
+import truncateText from "../../utils/truncateText";
 
-const ProductCard = ({ productId, productName, image, description, quantity, price, discount, specialPrice }) => {
+const ProductCard = ({
+  productId,
+  productName,
+  image,
+  description,
+  quantity,
+  price,
+  discount,
+  specialPrice,
+}) => {
   const [openProductViewModal, setOpenProductViewModal] = useState(false);
   const [selectedViewProduct, setSelectedViewProduct] = useState({});
   const isAvailable = quantity && Number(quantity) > 0;
@@ -55,9 +64,9 @@ const ProductCard = ({ productId, productName, image, description, quantity, pri
           {truncateText(productName, 50)}
         </h2>
         <div className="min-h-20 max-h-20">
-          <p className="text-gray-600 text-sm">{
-            truncateText(description, 90)
-          }</p>
+          <p className="text-gray-600 text-sm">
+            {truncateText(description, 90)}
+          </p>
         </div>
         <div className="flex justify-between items-center">
           {specialPrice ? (

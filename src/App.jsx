@@ -1,7 +1,7 @@
 
 import { FaBeer } from 'react-icons/fa'
 import './index.css'
-import Products from './components/Products'
+import Products from './components/Products/Products'
 function App() {
   return (
     <div className="">

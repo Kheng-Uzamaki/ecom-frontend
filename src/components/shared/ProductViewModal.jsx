@@ -1,10 +1,24 @@
-import { Button, Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
-import { Divider } from '@mui/material';
-import Status from './Status';
-import { MdClose, MdDone } from 'react-icons/md';
+import {
+  Button,
+  Dialog,
+  DialogBackdrop,
+  DialogPanel,
+  DialogTitle,
+} from "@headlessui/react";
+import { Divider } from "@mui/material";
+import Status from "../shared/Status";
+import { MdClose, MdDone } from "react-icons/md";
 
 function ProductViewModal({ open, setOpen, product, isAvailable }) {
-  const { productName, image, description, quantity, price, discount, specialPrice } = product || {};
+  const {
+    productName,
+    image,
+    description,
+    quantity,
+    price,
+    discount,
+    specialPrice,
+  } = product || {};
 
   const close = () => setOpen(false);
 
@@ -16,7 +30,11 @@ function ProductViewModal({ open, setOpen, product, isAvailable }) {
           {/* Product Image */}
           {image && (
             <div className="w-full h-56 overflow-hidden rounded-lg">
-              <img src={image} alt={productName} className="w-full h-full object-cover" />
+              <img
+                src={image}
+                alt={productName}
+                className="w-full h-full object-cover"
+              />
             </div>
           )}
 
@@ -31,20 +49,26 @@ function ProductViewModal({ open, setOpen, product, isAvailable }) {
             <div>
               {specialPrice ? (
                 <div>
-                  <span className="text-gray-400 line-through text-sm">${Number(price).toFixed(2)}</span>
-                  <span className="text-red-600 font-bold text-xl ml-2">${Number(specialPrice).toFixed(2)}</span>
+                  <span className="text-gray-400 line-through text-sm">
+                    ${Number(price).toFixed(2)}
+                  </span>
+                  <span className="text-red-600 font-bold text-xl ml-2">
+                    ${Number(specialPrice).toFixed(2)}
+                  </span>
                 </div>
               ) : (
-                <span className="text-gray-900 font-bold text-xl">${Number(price).toFixed(2)}</span>
+                <span className="text-gray-900 font-bold text-xl">
+                  ${Number(price).toFixed(2)}
+                </span>
               )}
             </div>
 
             {/* Stock Status */}
             <Status
-              text={isAvailable ? 'In Stock' : 'Out of Stock'}
+              text={isAvailable ? "In Stock" : "Out of Stock"}
               icon={isAvailable ? MdDone : MdClose}
-              bg={isAvailable ? 'bg-teal-200' : 'bg-rose-200'}
-              color={isAvailable ? 'text-teal-900' : 'text-rose-700'}
+              bg={isAvailable ? "bg-teal-200" : "bg-rose-200"}
+              color={isAvailable ? "text-teal-900" : "text-rose-700"}
             />
           </div>
 
