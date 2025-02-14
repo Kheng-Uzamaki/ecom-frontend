@@ -7,11 +7,12 @@ import Filter from "./Filter";
 import useProductFilter from "./useProductFilter";
 import { FadeLoader, MoonLoader } from "react-spinners";
 import Loader from "./Loader";
+import Paginations from "./Paginations";
 
 const Products = () => {
   const { isLoading, errorMessage } = useSelector((state) => state.errors);
 
-  const { products, categories } = useSelector((state) => state.products);
+  const { products, categories,pagination } = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   useProductFilter();
@@ -19,7 +20,6 @@ const Products = () => {
     dispatch(fetchCategories());
   }, [dispatch]);
 
-  console.log(products);
 
   return (
     <div className="lg:px-14 sm:px-8 px-4 py-14 2xl:w-[90%] 2xl:mx-auto">
@@ -41,6 +41,12 @@ const Products = () => {
               products.map((item) => (
                 <ProductCard key={item.productId} {...item} />
               ))}
+          </div>
+          <div className="flex justify-center pt-10">
+            <Paginations
+              numberOfPage={pagination?.totalPages}
+              totalProducts={pagination?.totalElements}
+            />
           </div>
         </div>
       )}
