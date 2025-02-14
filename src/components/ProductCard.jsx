@@ -16,7 +16,7 @@ const ProductCard = ({ productId, productName, image, description, quantity, pri
     <div className="border-none rounded-lg shadow-lg overflow-hidden transition-shadow duration-300">
       <div
         onClick={() => handleProductView({ productId, productName, image, description, quantity, price, discount, specialPrice })}
-        className="w-full overflow-hidden aspect-[3/2]"
+        className=" w-full overflow-hidden aspect-[3/2]"
       >
         <img
           className="w-full h-full cursor-pointer transition-transform transform duration-300 hover:scale-105"
