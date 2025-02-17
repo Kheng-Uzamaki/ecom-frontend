@@ -9,7 +9,7 @@ import { bannerLists } from "../../utils";
 
 const HeroBanner = () => {
   return (
-    <div className="w-full overflow-hidden shadow-lg">
+    <div className="w-full overflow-hidden shadow-lg rounded-lg">
       <Swiper
         grabCursor={true} // Enables smooth cursor effect
         loop={true} // Enables infinite circular looping
@@ -26,7 +26,7 @@ const HeroBanner = () => {
         {bannerLists.map((banner) => (
           <SwiperSlide key={banner.id}>
             <div
-              className={`flex flex-col md:flex-row items-center ${banner.bgColor} text-white h-[500px] md:h-[600px] p-8`}
+              className={`flex flex-col md:flex-row items-center ${banner.bgColor} text-white h-[400px] md:h-[500px] p-8`}
             >
               {/* Text Section */}
               <div className="flex-1 text-left md:px-12">
